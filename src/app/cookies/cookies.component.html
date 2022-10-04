@@ -1,8 +1,9 @@
 <div>
-    <h1>{{ title }}</h1>
-    <h2>{{ flavors }} 🥰😍</h2>
-    <ul>
-        <li>Intense Chocolate 🍪</li>
-        <li>Redvelvet with extra chocolate 🍪</li>
-    </ul>
+  <h1>{{ title }}</h1>
+  <h2>{{ flavors }} 🥰😍</h2>
+  <ul>
+    <li *ngFor="let cookies of cookie">
+      {{ cookies.name }} - <strong>{{ cookies.price }}</strong>
+    </li>
+  </ul>
 </div>
