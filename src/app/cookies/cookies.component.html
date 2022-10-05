@@ -5,7 +5,7 @@
   <!-- añadir sabores -->
   <p>Add Flavors</p>
   <p>
-    <input type="text" [(ngModel)]="my_flavor" />
+    <input type="text" [(ngModel)]="my_flavor" (keyup.enter)="showWord()"/>
     <button (click)="getFlavor()">Show me more</button>
     <button (click)="addSizes()">Add more</button>
   </p>
@@ -13,8 +13,10 @@
 
   <!-- mas vendida -->
   <ul [ngSwitch]="masVendida">
+    <input type="text" [(ngModel)]="masVendida" />
+
     <li *ngSwitchDefault>Chocolate Intenso</li>
-    <li *ngSwitchCase="'RedVelvet'">Red Velvet</li>
+    <li *ngSwitchCase="'red-velvet'">Red Velvet</li>
     <li *ngSwitchCase="'m&m'">M&M</li>
     <li *ngSwitchCase="'cheeseCake'">cheeseCake/li></li>
   </ul>
@@ -23,6 +25,7 @@
   <ul>
     <li *ngFor="let tamano of sizes; let indice = index">
       {{ indice + " - " + tamano }}
+      <button (click)="deleteSize(indice)">delete</button>
     </li>
   </ul>
 

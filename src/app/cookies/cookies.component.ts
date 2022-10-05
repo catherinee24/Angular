@@ -81,4 +81,17 @@ export class Cookies implements OnInit {
   addSizes() {
     this.sizes.push(this.my_flavor);
   }
+
+  deleteSize(index:any) {
+  //  delete this.sizes[index];
+    this.sizes.splice(index,1);
+  }
+
+  onBlur() {
+    console.log('Has salido del input');
+  }
+
+  showWord() {
+   alert(this.my_flavor);
+  }
 }
