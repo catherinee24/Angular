@@ -18,7 +18,8 @@ export class Cookie {
     public name: string,
     public brand: string,
     public flavor: string,
-    public price: any,
+    public size: string,
+    public price: number,
     public stock: boolean
     ) {}
 }

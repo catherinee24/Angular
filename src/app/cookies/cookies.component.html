@@ -1,9 +1,23 @@
 <div>
   <h1>{{ title }}</h1>
   <h2>{{ flavors }} 🥰😍</h2>
+
+  <p>Buy the best cookies sizes</p>
+  <ul>
+    <li *ngFor="let tamano of sizes; let indice = index">{{indice +' - '+ tamano}}</li>
+  </ul>
+
+  <h2>Cookies available</h2>
+  
   <ul>
     <li *ngFor="let cookies of cookie">
-      {{ cookies.name }} - <strong>{{ cookies.price }}</strong>
+      <span [ngStyle]="{
+        'text-decoration': !cookies.stock ? 'line-through' : 'none'
+      }">{{ cookies.name }} <strong>{{ cookies.size }}</strong> -
+      <strong>$ {{ cookies.price }}</strong></span>
+
+      <span id="offer" *ngIf="cookies.price <= 3"> Offer!</span>
+      
     </li>
   </ul>
 </div>
