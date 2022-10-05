@@ -11,11 +11,15 @@ export class Cookies implements OnInit {
   public flavors: string;
   public cookie: Array<Cookie>;
   public sizes: String[];
+  public masVendida: string;
+  public my_flavor: string;
 
   constructor() {
     this.title = 'The best cookies in town';
-    this.flavors = 'Most popular flavors';
+    this.flavors = 'Most popular flavors of the month';
     this.sizes = new Array();
+    this.masVendida = '';
+    this.my_flavor = '';
 
     this.cookie = [
       new Cookie(
@@ -52,7 +56,6 @@ export class Cookies implements OnInit {
         2.2,
         false
       ),
-
     ];
   }
   ngOnInit() {
@@ -61,13 +64,21 @@ export class Cookies implements OnInit {
     this.getSizes();
   }
 
-  getSizes(){
-    this.cookie.forEach((Cookie, index) =>{
-      if(this.sizes.indexOf(Cookie.size)< 0){
+  getSizes() {
+    this.cookie.forEach((Cookie, index) => {
+      if (this.sizes.indexOf(Cookie.size) < 0) {
         this.sizes.push(Cookie.size);
       }
-      console.log(index)
-    })
-    console.log(this.sizes)
+      console.log(index);
+    });
+    console.log(this.sizes);
+  }
+
+  getFlavor() {
+    alert(this.my_flavor);
+  }
+
+  addSizes() {
+    this.sizes.push(this.my_flavor);
   }
 }

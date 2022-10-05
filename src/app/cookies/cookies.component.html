@@ -2,22 +2,43 @@
   <h1>{{ title }}</h1>
   <h2>{{ flavors }} 🥰😍</h2>
 
+  <!-- añadir sabores -->
+  <p>Add Flavors</p>
+  <p>
+    <input type="text" [(ngModel)]="my_flavor" />
+    <button (click)="getFlavor()">Show me more</button>
+    <button (click)="addSizes()">Add more</button>
+  </p>
+  <p>{{ my_flavor }}</p>
+
+  <!-- mas vendida -->
+  <ul [ngSwitch]="masVendida">
+    <li *ngSwitchDefault>Chocolate Intenso</li>
+    <li *ngSwitchCase="'RedVelvet'">Red Velvet</li>
+    <li *ngSwitchCase="'m&m'">M&M</li>
+    <li *ngSwitchCase="'cheeseCake'">cheeseCake/li></li>
+  </ul>
+
   <p>Buy the best cookies sizes</p>
   <ul>
-    <li *ngFor="let tamano of sizes; let indice = index">{{indice +' - '+ tamano}}</li>
+    <li *ngFor="let tamano of sizes; let indice = index">
+      {{ indice + " - " + tamano }}
+    </li>
   </ul>
 
   <h2>Cookies available</h2>
-  
+
   <ul>
     <li *ngFor="let cookies of cookie">
-      <span [ngStyle]="{
-        'text-decoration': !cookies.stock ? 'line-through' : 'none'
-      }">{{ cookies.name }} <strong>{{ cookies.size }}</strong> -
-      <strong>$ {{ cookies.price }}</strong></span>
+      <span
+        [ngStyle]="{
+          'text-decoration': !cookies.stock ? 'line-through' : 'none'
+        }"
+        >{{ cookies.name }} <strong>{{ cookies.size }}</strong> -
+        <strong>$ {{ cookies.price }}</strong></span
+      >
 
       <span id="offer" *ngIf="cookies.price <= 3"> Offer!</span>
-      
     </li>
   </ul>
 </div>
