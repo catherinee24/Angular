@@ -5,7 +5,7 @@
   <!-- añadir sabores -->
   <p>Add Flavors</p>
   <p>
-    <input type="text" [(ngModel)]="my_flavor" (keyup.enter)="showWord()"/>
+    <input type="text" [(ngModel)]="my_flavor" (keyup.enter)="showWord()" />
     <button (click)="getFlavor()">Show me more</button>
     <button (click)="addSizes()">Add more</button>
   </p>
@@ -37,8 +37,17 @@
         [ngStyle]="{
           'text-decoration': !cookies.stock ? 'line-through' : 'none'
         }"
-        >{{ cookies.name }} <strong>{{ cookies.size }}</strong> -
-        <strong>$ {{ cookies.price }}</strong></span
+        >{{ cookies.name }}
+        <strong>{{ cookies.size }}</strong>
+        -
+        <strong
+          [class.altoPrecio]="cookies.price >= 3"
+          [ngClass]="{
+            fondoRojo: cookies.price > 4,
+            subrayado: cookies.size == 'bigger'
+          }"
+          >$ {{ cookies.price }}</strong
+        ></span
       >
 
       <span id="offer" *ngIf="cookies.price <= 3"> Offer!</span>

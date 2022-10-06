@@ -6,7 +6,7 @@ import { Cookie } from '../model/cookie';
   templateUrl: './cookies.component.html',
   styleUrls: ['./cookies.component.css'],
 })
-export class Cookies implements OnInit {
+export class CookiesComponent implements OnInit {
   public title: string;
   public flavors: string;
   public cookie: Array<Cookie>;
@@ -82,9 +82,9 @@ export class Cookies implements OnInit {
     this.sizes.push(this.my_flavor);
   }
 
-  deleteSize(index:any) {
-  //  delete this.sizes[index];
-    this.sizes.splice(index,1);
+  deleteSize(index: any) {
+    //  delete this.sizes[index];
+    this.sizes.splice(index, 1);
   }
 
   onBlur() {
@@ -92,6 +92,6 @@ export class Cookies implements OnInit {
   }
 
   showWord() {
-   alert(this.my_flavor);
+    alert(this.my_flavor);
   }
 }

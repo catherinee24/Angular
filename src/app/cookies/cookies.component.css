@@ -1,28 +1,40 @@
 div {
-    background-color: grey;
-    width: max-content;
-    padding: 30px;
-    margin-left: 50px;
+  background-color: grey;
+  width: max-content;
+  padding: 30px;
+  margin-left: 50px;
 }
 
 h1 {
-    font-size: 40px;
-    font-family: cursive;
-    margin-left: 50px;
+  font-size: 40px;
+  font-family: cursive;
+  margin-left: 50px;
 }
 
-h2{
-    font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 50px;
+h2 {
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 50px;
 }
 
 ul {
-    margin-left: 50px;
-    font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
+  margin-left: 50px;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 #offer {
-    color: green;
+  color: green;
+}
+
+.altoPrecio {
+  color: rgb(218, 115, 199);
+}
+
+.fondoRojo {
+  background-color: #ccc;
+}
+
+.subrayado {
+  text-decoration: underline;
 }

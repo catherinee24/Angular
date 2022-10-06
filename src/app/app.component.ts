@@ -8,17 +8,9 @@ import { config } from './model/config';
 })
 export class AppComponent {
   public title = 'learning-angular';
-  public description: string;
-  public configuration;
-  public show_videogame: boolean = true;
 
   constructor() {
     this.title = config.title;
-    this.description = config.description;
-    this.configuration = config;
   }
 
-  hideVideogame(value: boolean) {
-    this.show_videogame = value;
-  }
 }

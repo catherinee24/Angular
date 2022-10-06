@@ -8,3 +8,15 @@
 </ul>
 
 <hr>
+<!-- <videogame *ngIf="show_videogame"></videogame>  -->
+<button >
+<button (click)="hideVideogame(false)" *ngIf="show_videogame">
+    Hide Videogame!
+  </button>
+  <button (click)="hideVideogame(true)" *ngIf="!show_videogame">
+    show Videogame!
+  </button>
+  </button>
+
+<cookies *ngIf="show_videogame"></cookies>
+
