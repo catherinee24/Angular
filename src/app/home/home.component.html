@@ -1,2 +1,19 @@
 <h1 id="title">CatellaTech: {{ title }}!!</h1>
 <h2>{{ description }}</h2>
+
+<h2>My home page</h2>
+
+<!-- para poder utilizar el else en angular debemos usar la directiva ng-template -->
+<div *ngIf="identificado; then siIdentificado else noIdentificado"></div>
+
+<!-- template para si la persona esta identificado -->
+<ng-template #siIdentificado>
+  <p>identificado en la app</p>
+  <button (click)="unsetIdentificado()">Borrar identificacion</button>
+</ng-template>
+
+<!-- esto para crear la "funcion" del else -->
+<ng-template #noIdentificado>
+  <p>No estas identificado, pulsa este boton para identificarte:</p>
+  <button (click)="setIdentificado()">Identificate</button>
+</ng-template>

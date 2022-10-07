@@ -12,13 +12,16 @@ import { PhonesComponent } from './phones/phones.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'cookie', component: CookiesComponent },
   { path: 'videogame', component: VideogameComponent },
   { path: 'phones', component: PhonesComponent },
+  { path: 'phones/:name/:followers', component: PhonesComponent },
   { path: '**', component: HomeComponent },
 ];
 
 // Expoortar el modulo del router
 
 export const appRoutingProviders: any[] = [];
-export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders<any> =
+  RouterModule.forRoot(appRoutes);
