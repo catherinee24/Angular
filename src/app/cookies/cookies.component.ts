@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Cookie } from '../model/cookie';
+import { cookiesService } from '../services/cookies.service';
 
 @Component({
   selector: 'cookies',
   templateUrl: './cookies.component.html',
   styleUrls: ['./cookies.component.css'],
+  providers: [cookiesService]
 })
 export class CookiesComponent implements OnInit {
   public title: string;
@@ -14,52 +16,18 @@ export class CookiesComponent implements OnInit {
   public masVendida: string;
   public my_flavor: string;
 
-  constructor() {
+  constructor(private _cookiesService: cookiesService) {
     this.title = 'The best cookies in town';
     this.flavors = 'Most popular flavors of the month';
     this.sizes = new Array();
     this.masVendida = '';
     this.my_flavor = '';
-
-    this.cookie = [
-      new Cookie(
-        'intense chocolate🍪',
-        "catella's Cookies",
-        'chocolate',
-        'bigger',
-        4.2,
-        true
-      ),
-
-      new Cookie(
-        'redVelvet 🍪',
-        "catella's Cookies",
-        'chocolate and color',
-        'mid',
-        3,
-        false
-      ),
-
-      new Cookie(
-        'especial cookie 🍪',
-        "catella's Cookies",
-        'triple chocolate',
-        'supreme',
-        5,
-        true
-      ),
-      new Cookie(
-        'monday special 🍪',
-        "catella's Cookies",
-        'cheesecake',
-        'small',
-        2.2,
-        false
-      ),
-    ];
+    this.cookie = [];
   }
+
   ngOnInit() {
-    console.log(this.cookie);
+   this.cookie = this._cookiesService.getCookies()
+  //  alert(this._cookiesService.getText());
 
     this.getSizes();
   }
