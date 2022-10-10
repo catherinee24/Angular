@@ -10,12 +10,14 @@ import { requestService } from '../services/request.service';
 export class ExternalComponent implements OnInit {
     public user: any;
     public userId: any;
+    public date: any;
 
     constructor(private _requestService: requestService) {
         this.userId = 1;
     }
 
     ngOnInit() {
+        this.date = new Date();
         this.loadUser();
     }
 

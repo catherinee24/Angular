@@ -1,0 +1,56 @@
+<h2>Contact Us</h2>
+
+<form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name</label><br />
+    <input
+        type="text"
+        name="name"
+        placeholder="put your name"
+        #name="ngModel"
+        [(ngModel)]="user.name"
+        required
+        pattern="[a-zA-Z]+"
+    />
+    <span *ngIf="name.touched && !name.valid"> name is required!</span>
+    <br />
+
+    <label for="lastname">Lastname</label><br />
+    <input
+        type="text"
+        name="lastname"
+        placeholder="put your lastname"
+        #lastname="ngModel"
+        [(ngModel)]="user.lastname"
+        required
+        pattern="[a-zA-Z]+"
+    />
+    <span *ngIf="lastname.touched && !lastname.valid">
+        lastname is required!</span
+    >
+    <br />
+
+    <label for="email">Email</label> <br />
+    <input
+        type="email"
+        name="email"
+        placeholder="put your email"
+        #email="ngModel"
+        [(ngModel)]="user.email"
+        required
+        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
+    />
+    <span *ngIf="email.touched && !email.valid"> email is required!</span>
+    <br />
+
+    <label for="msg">Message</label><br />
+    <textarea
+        name="msg"
+        #msg="ngModel"
+        [(ngModel)]="user.msg"
+        required
+    ></textarea>
+    <span *ngIf="msg.touched && !msg.valid"> msg is required!</span>
+    <br />
+
+    <input type="submit" value="Submit" [disabled]="!contactForm.form.valid" />
+</form>

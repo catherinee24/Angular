@@ -10,6 +10,7 @@ import { CookiesComponent } from './cookies/cookies.component';
 import { PhonesComponent } from './phones/phones.component';
 import { HomeComponent } from './home/home.component';
 import { ExternalComponent } from './external/external.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ExternalComponent } from './external/external.component';
     PhonesComponent,
     HomeComponent,
     ExternalComponent,
+    FormComponent,
   ],
   imports: [BrowserModule, FormsModule, routing, HttpClientModule],
   providers: [appRoutingProviders],
