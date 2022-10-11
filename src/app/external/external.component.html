@@ -1,3 +1,43 @@
+<!-- formulario, para practicar => Htt post, ajax  -->
+<h2>Crear usuario</h2>
+
+<form #newUser="ngForm" (submit)="onSubmit(newUser)">
+    <p>
+        <label for="name">Name</label>
+        <input
+            type="text"
+            name="name"
+            placeholder="name.."
+            #name="ngModel"
+            [(ngModel)]="new_users.name"
+            required
+        />
+        <span *ngIf="name.touched && !name.valid"> name is required!</span>
+    </p>
+    <p>
+        <label for="job">Job</label>
+        <input
+            type="text"
+            name="job"
+            placeholder="job.."
+            #job="ngModel"
+            [(ngModel)]="new_users.job"
+            required
+        />
+        <span *ngIf="job.touched && !job.valid"> job is required!</span>
+    </p>
+
+    <input type="submit" value="save users" [disabled]="!newUser.form.valid" />
+</form>
+
+<div *ngIf="user_saved">
+    <h1>El usuario se ha guardado correctamente😎</h1>
+    <h2>{{ user_saved.name }}</h2>
+    <h3>{{ user_saved.job }}</h3>
+</div>
+
+<hr />
+
 <!-- pipes de fechas -->
 {{ date | date: 'fullDate' }}
 <!-- pipes de transformacion de texto -->

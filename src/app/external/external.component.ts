@@ -11,9 +11,15 @@ export class ExternalComponent implements OnInit {
     public user: any;
     public userId: any;
     public date: any;
+    public new_users: any;
+    public user_saved: any;
 
     constructor(private _requestService: requestService) {
         this.userId = 1;
+        this.new_users = {
+            name: '',
+            job: '',
+        };
     }
 
     ngOnInit() {
@@ -29,6 +35,18 @@ export class ExternalComponent implements OnInit {
                 this.user = result.data;
             },
             // esto para recoger el posible error de la peticion
+            (error) => {
+                console.log(<any>error);
+            }
+        );
+    }
+
+    onSubmit(form: any) {
+        this._requestService.addUser(this.new_users).subscribe(
+            (response) => {
+                this.user_saved = response;
+                form.reset();
+            },
             (error) => {
                 console.log(<any>error);
             }
